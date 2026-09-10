@@ -1,0 +1,26 @@
+{
+  "profile": "product",
+  "domain": "product",
+  "kinds": [
+    "brainstorm",
+    "design",
+    "roadmap",
+    "launch"
+  ],
+  "stages": [
+    "ideation",
+    "designing",
+    "planning",
+    "launching"
+  ],
+  "custom_node_types": [],
+  "custom_relations": {},
+  "custom_kinds": [],
+  "stage_aliases": {},
+  "status_rank_weights": {},
+  "checkpoint_definitions": [],
+  "component_link_rules": [],
+  "relation_aliases": {},
+  "require_explicit_status": false,
+  "truth_status_legacy_allowlist": []
+}

@@ -1,0 +1,1041 @@
+{
+  "version": 2,
+  "graph": {
+    "name": "bitcritter",
+    "domain": "pixel-pet-creator",
+    "kinds": [
+      "brainstorm",
+      "design",
+      "roadmap",
+      "launch"
+    ],
+    "stages": [
+      "ideation",
+      "designing",
+      "planning",
+      "launching"
+    ],
+    "profile": "product",
+    "created_at": "2026-09-10T10:59:31+00:00",
+    "updated_at": "2026-09-10T10:59:31+00:00"
+  },
+  "nodes": {
+    "document-agents-37dd68363f": {
+      "id": "document-agents-37dd68363f",
+      "type": "document",
+      "title": "AGENTS.md",
+      "content": "Authoritative repository rules for BitCritter. Product name must remain BitCritter and the word Studio must not appear in product-facing copy, documentation, UI labels, metadata, or generated titles. V1 is a deliberately small browser-first, offline-first 32x32 pixel-pet creator with no required backend. The authoritative artwork model is a fixed 32x32 grid of palette indices rendered through Canvas with nearest-neighbour scaling and persisted in IndexedDB. Prefer TypeScript, Vite, browser APIs, plain CSS, and a portable JavaScript/PWA bundle. The visual contract is a monochrome retro handheld chassis around a smartphone portrait display: D-pad lower left, circular Menu in the lower middle, A and B lower right, with no speaker grille, smiley decoration, or arbitrary accent colors. D-pad, A, B, circular Menu, and in-display ellipsis must all have functional documented behavior. All behavior and data changes require corresponding Markdown documentation. V1 includes creation, editing, palettes, frames, states, preview, local persistence, offline support, and export; cryptographic identity, memories, relationships, provenance, and transfer remain future concepts.",
+      "path": "AGENTS.md",
+      "tags": [
+        "authority",
+        "product-rules",
+        "bitcritter",
+        "v1",
+        "offline-first",
+        "canvas",
+        "indexed-palette",
+        "chassis",
+        "interaction",
+        "documentation"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:42+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:42+00:00",
+      "stage": "designing",
+      "status": "canonical_spec",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "a954c9cb1decc25fa6cf2e34860b617dc505d7e568310ab72bc73cd8f25dbb3c"
+      },
+      "finalized_at": "2026-09-10T11:00:42+00:00"
+    },
+    "document-readme-8ec9a00bfd": {
+      "id": "document-readme-8ec9a00bfd",
+      "type": "document",
+      "title": "README.md",
+      "content": "Repository-level overview of BitCritter as a mobile-first 32x32 pixel-pet creator. It defines the V1 goals: create and manage named critters, draw with pencil/eraser/fill/eyedropper/mirror/undo and context actions, edit indexed palettes, create and organize animation frames and states, preview, persist locally, install as a PWA, work offline after caching, and export data. The proposed stack is TypeScript, Vite, Canvas, Pointer Events, IndexedDB, plain CSS, Web App Manifest, and Service Worker. Rails or another server may host the compiled bundle at an endpoint such as /bitcritter/ but is not required for core workflow. Product principles emphasize a constrained 32x32 instrument, quick frame duplication, a valid one-frame critter, optional complexity, and the distinction between copyable appearance, provable identity, and earned history. The canonical documentation is under docs/.",
+      "path": "README.md",
+      "tags": [
+        "overview",
+        "v1-goals",
+        "stack",
+        "portable-bundle",
+        "pwa",
+        "offline-first",
+        "product-principles"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:45+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:45+00:00",
+      "stage": "planning",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "7f8c7e098868b8a817be17d750416b01f62914acd7cec9880bf5b1c24f9b4385"
+      },
+      "finalized_at": "2026-09-10T11:00:45+00:00"
+    },
+    "document-architecture-fd45fecace": {
+      "id": "document-architecture-fd45fecace",
+      "type": "document",
+      "title": "ARCHITECTURE.md",
+      "content": "Browser and deployment architecture for BitCritter. Vite builds a portable static bundle containing HTML, JavaScript, CSS, manifest, service worker, and assets; it can run on a static host, Rails endpoint, local server, or compatible embedded host. Runtime layers separate the chassis/UI, application core for critters/states/frames/tools/undo/preview, Canvas renderer, IndexedDB pet store, and serializer/import-export boundary. The authoritative data model stores each frame as exactly 1024 palette indices, states as ordered frame IDs with FPS and loop settings, and critters with palette and timestamps. Canvas must remain a single drawing surface with logical 32x32 coordinates and smoothing disabled. Pointer Events unify touch, stylus, and mouse; chassis commands map to the same application command layer as touch actions. IndexedDB is the source of truth for user data, while the service worker caches versioned app assets only. The app should preserve data through updates and keep a small mountable interface. Future backend services must not become necessary for the V1 success path.",
+      "path": "docs/ARCHITECTURE.md",
+      "tags": [
+        "architecture",
+        "typescript",
+        "vite",
+        "canvas",
+        "indexeddb",
+        "pwa",
+        "service-worker",
+        "offline",
+        "export",
+        "command-layer"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:47+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:47+00:00",
+      "stage": "designing",
+      "status": "canonical_spec",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "e8e8d6aa1bb675e5d4de34937c701b2869427720624b6649638e84dbabd6ca55"
+      },
+      "finalized_at": "2026-09-10T11:00:47+00:00"
+    },
+    "document-design-spec-93821af883": {
+      "id": "document-design-spec-93821af883",
+      "type": "document",
+      "title": "DESIGN_SPEC.md",
+      "content": "Strict V1 visual and interaction design for the BitCritter handheld. The app should feel like a tiny retro plastic device living on a smartphone, with the chassis treated as functional interaction structure. Application chrome is black and white; color is reserved for critter artwork, palette swatches, and previews. Fixed controls remain D-pad lower left, circular Menu in the lower middle, and A/B lower right. Speaker grilles, smiley decorations, and arbitrary extra controls are prohibited. The display is a readable black-bordered inset with no horizontal scrolling and finger-sized targets. Main screen families are My Pets, Draw, Palette, Frames, Preview, and Save/Export. The Draw canvas is the priority, tools may reflow on narrow phones, palette swatches may show real color, and active tools use monochrome inversion. Frames emphasize quick duplication and provide a non-drag reorder path. Preview removes the drawing grid and exposes state, previous, play/pause, next, FPS, and loop. Touch is primary, hover is not required, drawing prevents page scrolling, and decorative motion should be avoided or reduced.",
+      "path": "docs/DESIGN_SPEC.md",
+      "tags": [
+        "design",
+        "visual-contract",
+        "chassis",
+        "monochrome",
+        "smartphone",
+        "canvas",
+        "touch",
+        "responsive",
+        "preview"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:49+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:49+00:00",
+      "stage": "designing",
+      "status": "canonical_spec",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "a3bdd1fcd39238f0a30e00407d128a92d8cfeb49b77798a0a221cbacdf1178a5"
+      },
+      "finalized_at": "2026-09-10T11:00:49+00:00"
+    },
+    "document-future-identity-8f6639266d": {
+      "id": "document-future-identity-8f6639266d",
+      "type": "document",
+      "title": "FUTURE_IDENTITY.md",
+      "content": "Future architectural direction explicitly excluded from V1 behavior. BitCritter may later represent a portable persistent critter whose body, identity, memories, relationships, and authenticated history move between compatible containers. The core principle is that appearance may be copied, identity must be proven, and history must be earned. A future identity could use a protected key pair and public-key-derived identifier rather than hashing mutable sprite bytes. Signed history could be append-only and hash-linked, while memories could carry typed categories and provenance distinguishing self-report, container observation, mutual witnessing, and corroboration. Containers may negotiate capabilities and distinguish export, which is copyable backup/tooling data, from transfer, which is an authenticated handoff. V1 implements only body data and basic metadata; future namespaces may be reserved but must not complicate V1. Any cryptographic design still needs deliberate decisions about keys, storage, recovery, transfer, revocation, verification, cloning, backup, and privacy.",
+      "path": "docs/FUTURE_IDENTITY.md",
+      "tags": [
+        "future",
+        "identity",
+        "cryptography",
+        "history",
+        "memories",
+        "relationships",
+        "containers",
+        "transfer",
+        "extensibility",
+        "scope-boundary"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:51+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:51+00:00",
+      "stage": "ideation",
+      "status": "proposed",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "551460934ad88c1914fdadab906e95eddbd166b53605f3f3e40e661081d5c493"
+      },
+      "finalized_at": "2026-09-10T11:00:51+00:00"
+    },
+    "document-readme-9f7cbce127": {
+      "id": "document-readme-9f7cbce127",
+      "type": "document",
+      "title": "docs/README.md",
+      "content": "Documentation index and scope boundary. It identifies the authoritative V1 manual, specification, user stories, architecture, design specification, and future identity direction. It reiterates that local persistence, PWA behavior, and portable JavaScript build are V1, while cryptographic identity, authenticated history, memories, relationships, and cross-container transfer are future protocol work. It repeats the product principle: Appearance may be copied. Identity must be proven. History must be earned.",
+      "path": "docs/README.md",
+      "tags": [
+        "documentation",
+        "index",
+        "scope-boundary",
+        "v1",
+        "future-direction"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:53+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:53+00:00",
+      "stage": "planning",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "39e62f4d9e53ddc3af30da7251c72cf04727a516519a86f617640942b3488f01"
+      },
+      "finalized_at": "2026-09-10T11:00:53+00:00"
+    },
+    "document-user-manual-db178daf37": {
+      "id": "document-user-manual-db178daf37",
+      "type": "document",
+      "title": "USER_MANUAL.md",
+      "content": "End-user V1 manual and control reference. It explains the My Pets library, new critter defaults, local/offline behavior, and the functional chassis controls: D-pad moves focus or a canvas cursor, A confirms or applies the drawing tool, B cancels or goes back safely, circular Menu opens the current screen menu, and in-display ellipsis opens local secondary actions. It documents the Draw tab and its 32x32 nearest-neighbour canvas, palette-index behavior, Pencil, Eraser, Fill, Eyedropper, Mirror, Undo, Redo, and Clear Frame. Palette management includes add/edit/select and safe deletion that never silently remaps used colors. Frames and states support add, duplicate, delete, reorder with a non-drag path, Idle fallback, playback, FPS, and loop. Preview removes the grid. Save/Export covers local saving, structured JSON-like export, JavaScript-friendly data, sprite output, and format information. Installation guidance covers PWA use and offline core workflows. The manual clearly lists cryptographic identity, signed history, memories, relationships, secure transfer, accounts, and cloud sync as future work.",
+      "path": "docs/USER_MANUAL.md",
+      "tags": [
+        "manual",
+        "user-guide",
+        "controls",
+        "drawing",
+        "palette",
+        "frames",
+        "states",
+        "preview",
+        "persistence",
+        "export",
+        "pwa",
+        "offline"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:54+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:54+00:00",
+      "stage": "planning",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "b69973be1fcfd731edefe168bb1deda5124104d637f5338c5ac39ee6c661d047"
+      },
+      "finalized_at": "2026-09-10T11:00:54+00:00"
+    },
+    "document-user-stories-132c362b6e": {
+      "id": "document-user-stories-132c362b6e",
+      "type": "document",
+      "title": "USER_STORIES.md",
+      "content": "V1 backlog organized into 12 epics: critter creation, drawing, palette, frames, states, animation preview, critter library, saving and persistence, export, mobile installation, chassis controls, and visual design. The stories cover named independent critters, fixed 32x32 touch drawing, transparency, indexed palettes, safe color deletion, undo/redo, mirror and clear, duplicate-first animation authoring, frame order with a non-drag alternative, valid Idle state behavior, custom states and playback settings, local IndexedDB-style persistence without accounts, structured and visual export, PWA installation and offline reopening, fully functional D-pad/A/B/Menu/ellipsis controls, and the monochrome smartphone handheld contract. This document is the user-outcome checklist that the implementation and acceptance path should satisfy.",
+      "path": "docs/USER_STORIES.md",
+      "tags": [
+        "user-stories",
+        "backlog",
+        "acceptance",
+        "drawing",
+        "palette",
+        "animation",
+        "persistence",
+        "export",
+        "pwa",
+        "chassis",
+        "visual-design"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:56+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:56+00:00",
+      "stage": "planning",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "ec1ff1bae53b78f4168c11717d1cf92830627dcf8b19144e1658b92e8a81273a"
+      },
+      "finalized_at": "2026-09-10T11:00:56+00:00"
+    },
+    "document-v1-spec-d3beaa6c3a": {
+      "id": "document-v1-spec-d3beaa6c3a",
+      "type": "document",
+      "title": "V1_SPEC.md",
+      "content": "Product and acceptance specification for the first BitCritter release. The success path is: create a named critter, draw on a fixed 32x32 canvas, edit its indexed palette, duplicate a frame, make a two-frame Idle animation, preview it, save locally, close and reopen it offline, and find it intact without an account. Scope includes a critter library, Canvas-based Pointer Event drawing tools, safe palette operations with separate transparency, frame creation/duplication/deletion/reordering, named states with required Idle, ordered frame sequences, loop and FPS, preview controls, versioned IndexedDB persistence, JSON-friendly structured export, and optional PNG or sprite-sheet export. Chassis controls are functional and touch remains primary. The visual scope requires monochrome chrome, color only for artwork and swatches, stable retro controls, no speaker grille or smiley, and black/white selected states. PWA caching must preserve user data; backend services and identity/history/memory/relationship/transfer/social features are out of scope.",
+      "path": "docs/V1_SPEC.md",
+      "tags": [
+        "v1-spec",
+        "scope",
+        "acceptance",
+        "canvas",
+        "indexed-palette",
+        "indexeddb",
+        "pwa",
+        "export",
+        "chassis",
+        "offline"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:00:58+00:00"
+      },
+      "created_at": "2026-09-10T10:59:35+00:00",
+      "updated_at": "2026-09-10T11:00:58+00:00",
+      "stage": "planning",
+      "status": "canonical_spec",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "dfbfccd75dc6904fbf7160ca9a2f7e360ffd4f97665203f88db79779cda93a9d"
+      },
+      "finalized_at": "2026-09-10T11:00:58+00:00"
+    },
+    "status-transition-agents-md-canonical-spec-a840efa7": {
+      "id": "status-transition-agents-md-canonical-spec-a840efa7",
+      "type": "status_transition",
+      "title": "Status transition: AGENTS.md → canonical_spec",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-9f0b9fd5f48e412b98dabc189b8f14ce\", \"reason\": \"Truth status changed from unclassified to canonical_spec during operation-9f0b9fd5f48e412b98dabc189b8f14ce.\", \"subject_hash\": \"a954c9cb1decc25fa6cf2e34860b617dc505d7e568310ab72bc73cd8f25dbb3c\", \"to_status\": \"canonical_spec\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:42+00:00",
+      "updated_at": "2026-09-10T11:00:42+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-9f0b9fd5f48e412b98dabc189b8f14ce",
+        "reason": "Truth status changed from unclassified to canonical_spec during operation-9f0b9fd5f48e412b98dabc189b8f14ce.",
+        "subject_hash": "a954c9cb1decc25fa6cf2e34860b617dc505d7e568310ab72bc73cd8f25dbb3c",
+        "to_status": "canonical_spec"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "74b883408a14dbd03aea92e2cbc742d5333e67c3b6d7f2a33acd8a4dee989706"
+      },
+      "finalized_at": "2026-09-10T11:00:42+00:00"
+    },
+    "status-transition-readme-md-current-a77cba96": {
+      "id": "status-transition-readme-md-current-a77cba96",
+      "type": "status_transition",
+      "title": "Status transition: README.md → current",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-f42e5fbfef67419fb5745e59b629929e\", \"reason\": \"Truth status changed from unclassified to current during operation-f42e5fbfef67419fb5745e59b629929e.\", \"subject_hash\": \"7f8c7e098868b8a817be17d750416b01f62914acd7cec9880bf5b1c24f9b4385\", \"to_status\": \"current\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:45+00:00",
+      "updated_at": "2026-09-10T11:00:45+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-f42e5fbfef67419fb5745e59b629929e",
+        "reason": "Truth status changed from unclassified to current during operation-f42e5fbfef67419fb5745e59b629929e.",
+        "subject_hash": "7f8c7e098868b8a817be17d750416b01f62914acd7cec9880bf5b1c24f9b4385",
+        "to_status": "current"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "2bd210d07dbb44e1f624b30c6cbeab494e07e89f2428d6181c1d8cb9029ce8e0"
+      },
+      "finalized_at": "2026-09-10T11:00:45+00:00"
+    },
+    "status-transition-architecture-md-canonical-spec-970d0df7": {
+      "id": "status-transition-architecture-md-canonical-spec-970d0df7",
+      "type": "status_transition",
+      "title": "Status transition: ARCHITECTURE.md → canonical_spec",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-106615f0826a4c018ef68ef1b446d2b7\", \"reason\": \"Truth status changed from unclassified to canonical_spec during operation-106615f0826a4c018ef68ef1b446d2b7.\", \"subject_hash\": \"e8e8d6aa1bb675e5d4de34937c701b2869427720624b6649638e84dbabd6ca55\", \"to_status\": \"canonical_spec\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:47+00:00",
+      "updated_at": "2026-09-10T11:00:47+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-106615f0826a4c018ef68ef1b446d2b7",
+        "reason": "Truth status changed from unclassified to canonical_spec during operation-106615f0826a4c018ef68ef1b446d2b7.",
+        "subject_hash": "e8e8d6aa1bb675e5d4de34937c701b2869427720624b6649638e84dbabd6ca55",
+        "to_status": "canonical_spec"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "2b1e5bfb622361d871b908dfe31e87bfd3eefc323e7b4dce9e7f3554b021b210"
+      },
+      "finalized_at": "2026-09-10T11:00:47+00:00"
+    },
+    "status-transition-design-spec-md-canonical-spec-5cd91eb5": {
+      "id": "status-transition-design-spec-md-canonical-spec-5cd91eb5",
+      "type": "status_transition",
+      "title": "Status transition: DESIGN_SPEC.md → canonical_spec",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-8c4107796bc24d6e9c3d9a5b3841edba\", \"reason\": \"Truth status changed from unclassified to canonical_spec during operation-8c4107796bc24d6e9c3d9a5b3841edba.\", \"subject_hash\": \"a3bdd1fcd39238f0a30e00407d128a92d8cfeb49b77798a0a221cbacdf1178a5\", \"to_status\": \"canonical_spec\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:49+00:00",
+      "updated_at": "2026-09-10T11:00:49+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-8c4107796bc24d6e9c3d9a5b3841edba",
+        "reason": "Truth status changed from unclassified to canonical_spec during operation-8c4107796bc24d6e9c3d9a5b3841edba.",
+        "subject_hash": "a3bdd1fcd39238f0a30e00407d128a92d8cfeb49b77798a0a221cbacdf1178a5",
+        "to_status": "canonical_spec"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "c6839cf716fec712366408fec2701d9ddccb4cb4c628d120dd5ed3b6e5ba9e9e"
+      },
+      "finalized_at": "2026-09-10T11:00:49+00:00"
+    },
+    "status-transition-future-identity-md-proposed-c5923d6e": {
+      "id": "status-transition-future-identity-md-proposed-c5923d6e",
+      "type": "status_transition",
+      "title": "Status transition: FUTURE_IDENTITY.md → proposed",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-e14c8bdb1c1248e0a7f0885559a23d65\", \"reason\": \"Truth status changed from unclassified to proposed during operation-e14c8bdb1c1248e0a7f0885559a23d65.\", \"subject_hash\": \"551460934ad88c1914fdadab906e95eddbd166b53605f3f3e40e661081d5c493\", \"to_status\": \"proposed\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:51+00:00",
+      "updated_at": "2026-09-10T11:00:51+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-e14c8bdb1c1248e0a7f0885559a23d65",
+        "reason": "Truth status changed from unclassified to proposed during operation-e14c8bdb1c1248e0a7f0885559a23d65.",
+        "subject_hash": "551460934ad88c1914fdadab906e95eddbd166b53605f3f3e40e661081d5c493",
+        "to_status": "proposed"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "26a858923bef72d347e4b93f4b1a9457af70109af0847d3d7277221546a63a61"
+      },
+      "finalized_at": "2026-09-10T11:00:51+00:00"
+    },
+    "status-transition-docs-readme-md-current-67119ca5": {
+      "id": "status-transition-docs-readme-md-current-67119ca5",
+      "type": "status_transition",
+      "title": "Status transition: docs/README.md → current",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-0777b6115d7e463893118b7cf52cf0ef\", \"reason\": \"Truth status changed from unclassified to current during operation-0777b6115d7e463893118b7cf52cf0ef.\", \"subject_hash\": \"39e62f4d9e53ddc3af30da7251c72cf04727a516519a86f617640942b3488f01\", \"to_status\": \"current\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:53+00:00",
+      "updated_at": "2026-09-10T11:00:53+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-0777b6115d7e463893118b7cf52cf0ef",
+        "reason": "Truth status changed from unclassified to current during operation-0777b6115d7e463893118b7cf52cf0ef.",
+        "subject_hash": "39e62f4d9e53ddc3af30da7251c72cf04727a516519a86f617640942b3488f01",
+        "to_status": "current"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "606baa5be28bd927520f170a4eb48924e70d95d1511efac8c90d8c0d495b8e9a"
+      },
+      "finalized_at": "2026-09-10T11:00:53+00:00"
+    },
+    "status-transition-user-manual-md-current-01095461": {
+      "id": "status-transition-user-manual-md-current-01095461",
+      "type": "status_transition",
+      "title": "Status transition: USER_MANUAL.md → current",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-67924c1ea7b64e2c9f51a4292b1fcd46\", \"reason\": \"Truth status changed from unclassified to current during operation-67924c1ea7b64e2c9f51a4292b1fcd46.\", \"subject_hash\": \"b69973be1fcfd731edefe168bb1deda5124104d637f5338c5ac39ee6c661d047\", \"to_status\": \"current\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:54+00:00",
+      "updated_at": "2026-09-10T11:00:54+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-67924c1ea7b64e2c9f51a4292b1fcd46",
+        "reason": "Truth status changed from unclassified to current during operation-67924c1ea7b64e2c9f51a4292b1fcd46.",
+        "subject_hash": "b69973be1fcfd731edefe168bb1deda5124104d637f5338c5ac39ee6c661d047",
+        "to_status": "current"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "54b4a3864075f24e12034c9500880f57dc4e3713afb8544eaa55388fb84c5213"
+      },
+      "finalized_at": "2026-09-10T11:00:54+00:00"
+    },
+    "status-transition-user-stories-md-current-5de2fa2f": {
+      "id": "status-transition-user-stories-md-current-5de2fa2f",
+      "type": "status_transition",
+      "title": "Status transition: USER_STORIES.md → current",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-f8e52fee53c440f58a0641c0ed3558e4\", \"reason\": \"Truth status changed from unclassified to current during operation-f8e52fee53c440f58a0641c0ed3558e4.\", \"subject_hash\": \"ec1ff1bae53b78f4168c11717d1cf92830627dcf8b19144e1658b92e8a81273a\", \"to_status\": \"current\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:56+00:00",
+      "updated_at": "2026-09-10T11:00:56+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-f8e52fee53c440f58a0641c0ed3558e4",
+        "reason": "Truth status changed from unclassified to current during operation-f8e52fee53c440f58a0641c0ed3558e4.",
+        "subject_hash": "ec1ff1bae53b78f4168c11717d1cf92830627dcf8b19144e1658b92e8a81273a",
+        "to_status": "current"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "76a2cc9065dd8e14a2a88aeb9b42e266d7a0b01dfecf75a438542a0da7d914cb"
+      },
+      "finalized_at": "2026-09-10T11:00:56+00:00"
+    },
+    "status-transition-v1-spec-md-canonical-spec-4e4c195e": {
+      "id": "status-transition-v1-spec-md-canonical-spec-4e4c195e",
+      "type": "status_transition",
+      "title": "Status transition: V1_SPEC.md → canonical_spec",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-fd8ae0eb2931494a959a5c4e61c34472\", \"reason\": \"Truth status changed from unclassified to canonical_spec during operation-fd8ae0eb2931494a959a5c4e61c34472.\", \"subject_hash\": \"dfbfccd75dc6904fbf7160ca9a2f7e360ffd4f97665203f88db79779cda93a9d\", \"to_status\": \"canonical_spec\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:00:58+00:00",
+      "updated_at": "2026-09-10T11:00:58+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-fd8ae0eb2931494a959a5c4e61c34472",
+        "reason": "Truth status changed from unclassified to canonical_spec during operation-fd8ae0eb2931494a959a5c4e61c34472.",
+        "subject_hash": "dfbfccd75dc6904fbf7160ca9a2f7e360ffd4f97665203f88db79779cda93a9d",
+        "to_status": "canonical_spec"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "e68fea06a1425f79e71a3632e63c4808c85e8d397b837ea208d28eff6d69aff5"
+      },
+      "finalized_at": "2026-09-10T11:00:58+00:00"
+    },
+    "image-mockups-v1-f47976cdd2": {
+      "id": "image-mockups-v1-f47976cdd2",
+      "type": "image",
+      "title": "mockups-v1.png",
+      "content": "Direct visual inspection of the 1024x1536 RGB PNG. The image is an annotated six-panel BitCritter V1 smartphone mockup arranged in two rows of three retro handheld devices. The top row shows My Pets, Draw, and Palette; the bottom row shows Frames, Preview, and Save / Export. Every chassis repeats a portrait display, lower-left D-pad, circular lower-middle Menu button, and lower-right A and B buttons. The display annotations identify My Pets cards for Biscuit, Pepper, Mochi, and Pickle plus New Pet; Draw tabs, a 32 x 32 canvas with a cat sprite, Pencil, Eraser, Fill, Eyedropper, Mirror, Undo, and color palette; Palette rows with numbered swatches, hex values, edit/delete actions, and Add Color; Frames with Idle selector, play, thumbnails, Walk/Sleep/Happy/Sad/Eat states, and Add State; Preview with enlarged sprite, state selector, previous/play/next, FPS 1/2/4/8, and Loop; Save / Export with pet name, Saved status, Export Pet File, Export for JavaScript, Export Sprites, and Pet Info. The visual treatment is mostly monochrome chrome with colored critter art and palette swatches, matching the written visual contract. The image also contains product-facing text Pixel Pet Studio in the header and chassis footer across panels. That text conflicts with AGENTS.md, which prohibits the word Studio in product-facing copy, documentation, UI labels, metadata, and code-generated titles; the mockup must be revised to BitCritter before being treated as compliant. The artwork is therefore strong visual evidence for the intended screen topology and controls, but not fully compliant with the authoritative naming rule.",
+      "path": "docs/mockups-v1.png",
+      "tags": [
+        "mockup",
+        "visual-design",
+        "chassis",
+        "my-pets",
+        "draw",
+        "palette",
+        "frames",
+        "preview",
+        "save-export",
+        "controls",
+        "annotation",
+        "studio-conflict"
+      ],
+      "meta": {
+        "source": "ingest",
+        "enriched_at": "2026-09-10T11:04:09+00:00"
+      },
+      "created_at": "2026-09-10T11:03:55+00:00",
+      "updated_at": "2026-09-10T11:04:09+00:00",
+      "stage": "designing",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "220371dca5b6e208f0332682fe4f4e23ee5e4a485f1481a2e7e150ed153cbe21"
+      },
+      "finalized_at": "2026-09-10T11:04:09+00:00"
+    },
+    "status-transition-mockups-v1-png-current-40f791a4": {
+      "id": "status-transition-mockups-v1-png-current-40f791a4",
+      "type": "status_transition",
+      "title": "Status transition: mockups-v1.png → current",
+      "content": "{\"from_status\": \"unclassified\", \"operation_id\": \"operation-14fc6b58371b42f08df6e8389949b122\", \"reason\": \"Truth status changed from unclassified to current during operation-14fc6b58371b42f08df6e8389949b122.\", \"subject_hash\": \"220371dca5b6e208f0332682fe4f4e23ee5e4a485f1481a2e7e150ed153cbe21\", \"to_status\": \"current\"}",
+      "path": null,
+      "tags": [],
+      "meta": {},
+      "created_at": "2026-09-10T11:04:09+00:00",
+      "updated_at": "2026-09-10T11:04:09+00:00",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "not_applicable",
+      "evidence": [],
+      "source_refs": [],
+      "owners": [],
+      "provenance": {
+        "actor_kind": "system_tool",
+        "source": "cli"
+      },
+      "semantic": {
+        "from_status": "unclassified",
+        "operation_id": "operation-14fc6b58371b42f08df6e8389949b122",
+        "reason": "Truth status changed from unclassified to current during operation-14fc6b58371b42f08df6e8389949b122.",
+        "subject_hash": "220371dca5b6e208f0332682fe4f4e23ee5e4a485f1481a2e7e150ed153cbe21",
+        "to_status": "current"
+      },
+      "stage": null,
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "e4d9b2a2842b92756aa5dd8b609312f80816f93c2cadc31f6b9de496c59acd0f"
+      },
+      "finalized_at": "2026-09-10T11:04:09+00:00"
+    },
+    "finding-mockup-studio-naming-conflict": {
+      "id": "finding-mockup-studio-naming-conflict",
+      "type": "finding",
+      "title": "Mockup naming conflict: forbidden Studio copy",
+      "content": "The newly inspected docs/mockups-v1.png visibly uses Pixel Pet Studio in the display header and chassis footer across the mockup panels. AGENTS.md is authoritative and explicitly forbids the word Studio in product-facing copy, documentation, UI labels, metadata, and code-generated titles. The mockup is useful visual evidence for the six-screen topology, monochrome chassis, colored artwork, and control placement, but it is not naming-compliant until those labels are changed to BitCritter.",
+      "path": "grapher://finding/mockup-studio-naming-conflict",
+      "tags": [
+        "finding",
+        "naming-rule",
+        "visual-contract",
+        "mockup",
+        "studio-conflict",
+        "compliance"
+      ],
+      "meta": {},
+      "created_at": "2026-09-10T11:04:43+00:00",
+      "updated_at": "2026-09-10T11:08:10+00:00",
+      "stage": "designing",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [
+        {
+          "type": "image",
+          "ref": "docs/mockups-v1.png"
+        }
+      ],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {}
+    },
+    "finding-grapher-curation-mistake-20260910": {
+      "id": "finding-grapher-curation-mistake-20260910",
+      "type": "finding",
+      "title": "Grapher curation mistake: accidental node-type mutation",
+      "content": "During evidence metadata cleanup, the mockup naming-conflict finding was accidentally upserted with node type image. This was an operator error: the actual docs/mockups-v1.png image node already existed separately and should not have been replaced or relabeled. The finding node has been restored to type finding with its original content, locator, tags, evidence, and existing edges. This record is retained as an explicit correction trail.",
+      "path": "grapher://finding/grapher-curation-mistake-20260910",
+      "tags": [
+        "grapher",
+        "curation",
+        "mistake",
+        "correction",
+        "operator-error"
+      ],
+      "meta": {},
+      "created_at": "2026-09-10T11:08:12+00:00",
+      "updated_at": "2026-09-10T11:08:12+00:00",
+      "stage": "maintaining",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [
+        {
+          "type": "command",
+          "ref": "grapher add evidence cleanup correction"
+        }
+      ],
+      "source_refs": [],
+      "owners": [],
+      "scope": {},
+      "provenance": {}
+    }
+  },
+  "edges": [
+    {
+      "from": "document-agents-37dd68363f",
+      "to": "status-transition-agents-md-canonical-spec-a840efa7",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:42+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-readme-8ec9a00bfd",
+      "to": "status-transition-readme-md-current-a77cba96",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:45+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-architecture-fd45fecace",
+      "to": "status-transition-architecture-md-canonical-spec-970d0df7",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:47+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-design-spec-93821af883",
+      "to": "status-transition-design-spec-md-canonical-spec-5cd91eb5",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:49+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-future-identity-8f6639266d",
+      "to": "status-transition-future-identity-md-proposed-c5923d6e",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:51+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-readme-9f7cbce127",
+      "to": "status-transition-docs-readme-md-current-67119ca5",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:53+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-user-manual-db178daf37",
+      "to": "status-transition-user-manual-md-current-01095461",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:54+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-user-stories-132c362b6e",
+      "to": "status-transition-user-stories-md-current-5de2fa2f",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:56+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "document-v1-spec-d3beaa6c3a",
+      "to": "status-transition-v1-spec-md-canonical-spec-4e4c195e",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:00:58+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "status-transition-mockups-v1-png-current-40f791a4",
+      "rel": "status_changed_by",
+      "created_at": "2026-09-10T11:04:09+00:00",
+      "note": "immutable truth-status transition"
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-design-spec-93821af883",
+      "rel": "implements",
+      "created_at": "2026-09-10T11:04:45+00:00",
+      "note": "The mockup visually realizes the written screen/chassis design."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-v1-spec-d3beaa6c3a",
+      "rel": "implements",
+      "created_at": "2026-09-10T11:04:45+00:00",
+      "note": "The six panels cover the primary V1 screen families and workflow."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-architecture-fd45fecace",
+      "rel": "references",
+      "created_at": "2026-09-10T11:04:45+00:00",
+      "note": "The image exposes the UI shell and screen boundaries described by the architecture."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-user-manual-db178daf37",
+      "rel": "references",
+      "created_at": "2026-09-10T11:04:45+00:00",
+      "note": "Annotated labels correspond to the manual controls and screen actions."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-user-stories-132c362b6e",
+      "rel": "satisfies",
+      "created_at": "2026-09-10T11:04:45+00:00",
+      "note": "The mockup visibly covers library, drawing, palette, frames, preview, export, and chassis-control outcomes."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-readme-8ec9a00bfd",
+      "rel": "references",
+      "created_at": "2026-09-10T11:04:46+00:00",
+      "note": "The mockup visualizes the product overview and V1 goals."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-readme-9f7cbce127",
+      "rel": "part_of",
+      "created_at": "2026-09-10T11:04:46+00:00",
+      "note": "The mockup is part of the repository documentation set."
+    },
+    {
+      "from": "document-design-spec-93821af883",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "evidenced_by",
+      "created_at": "2026-09-10T11:04:46+00:00",
+      "note": "The image provides direct visual evidence for the specified chassis and screen topology."
+    },
+    {
+      "from": "document-v1-spec-d3beaa6c3a",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "evidenced_by",
+      "created_at": "2026-09-10T11:04:46+00:00",
+      "note": "The image provides visual evidence for the V1 acceptance surface and screen families."
+    },
+    {
+      "from": "document-user-stories-132c362b6e",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "evidenced_by",
+      "created_at": "2026-09-10T11:04:46+00:00",
+      "note": "The image provides visual evidence for multiple user-story epics."
+    },
+    {
+      "from": "document-user-manual-db178daf37",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "references",
+      "created_at": "2026-09-10T11:04:47+00:00",
+      "note": "The manual can use the annotated mockup as a visual orientation reference."
+    },
+    {
+      "from": "document-architecture-fd45fecace",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "references",
+      "created_at": "2026-09-10T11:04:47+00:00",
+      "note": "The architecture can use the mockup as a UI-shell reference while keeping behavior model-driven."
+    },
+    {
+      "from": "document-agents-37dd68363f",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "applies_to",
+      "created_at": "2026-09-10T11:04:47+00:00",
+      "note": "The repository naming, control, and visual rules apply to this mockup asset."
+    },
+    {
+      "from": "finding-mockup-studio-naming-conflict",
+      "to": "image-mockups-v1-f47976cdd2",
+      "rel": "evidenced_by",
+      "created_at": "2026-09-10T11:04:47+00:00",
+      "note": "The finding is grounded in direct inspection of the image text."
+    },
+    {
+      "from": "finding-mockup-studio-naming-conflict",
+      "to": "document-agents-37dd68363f",
+      "rel": "violates",
+      "created_at": "2026-09-10T11:04:47+00:00",
+      "note": "The observed Studio labels conflict with the authoritative naming rule."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-agents-37dd68363f",
+      "rel": "violates",
+      "created_at": "2026-09-10T11:04:48+00:00",
+      "note": "The current asset contains forbidden product-facing copy."
+    },
+    {
+      "from": "image-mockups-v1-f47976cdd2",
+      "to": "document-future-identity-8f6639266d",
+      "rel": "constrains",
+      "created_at": "2026-09-10T11:04:48+00:00",
+      "note": "The mockup remains within V1 visual scope and does not depict future identity features."
+    },
+    {
+      "from": "finding-grapher-curation-mistake-20260910",
+      "to": "finding-mockup-studio-naming-conflict",
+      "rel": "references",
+      "created_at": "2026-09-10T11:08:13+00:00",
+      "note": "Correction record points to the restored naming-conflict finding."
+    }
+  ]
+}
