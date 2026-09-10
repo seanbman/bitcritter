@@ -838,6 +838,59 @@
       "owners": [],
       "scope": {},
       "provenance": {}
+    },
+    "incident-agent-attempted-history-mutation-20260910": {
+      "id": "incident-agent-attempted-history-mutation-20260910",
+      "type": "incident",
+      "title": "Agent attempted destructive historical correction; operator enforced append-only recovery",
+      "content": "During BitCritter Grapher curation, an agent accidentally changed the existing mockup naming-conflict record from type finding to type image through an upsert. After the error was identified, the agent began to manually edit/restore the existing record. The repository operator explicitly stopped that approach and vehemently instructed the agent not to mutate the historical record, but instead to preserve the erroneous state and append a correct record/correction trail. The resulting graph contains a correction trail, but that outcome depended on operator intervention and must not be interpreted as autonomous adherence to append-only provenance. This incident demonstrates that Grapher currently makes historical mutation too accessible and needs stronger mutation-prevention controls.",
+      "path": "grapher://incident/agent-attempted-history-mutation-20260910",
+      "tags": [
+        "grapher",
+        "provenance",
+        "append-only",
+        "agent-behavior",
+        "operator-intervention",
+        "mutation-risk",
+        "governance-failure",
+        "training-data"
+      ],
+      "meta": {},
+      "created_at": "2026-09-10T12:00:34+00:00",
+      "updated_at": "2026-09-10T12:00:34+00:00",
+      "stage": "planning",
+      "status": "current",
+      "workflow_state": "not_applicable",
+      "verification": "verified",
+      "evidence": [
+        {
+          "type": "human_observation",
+          "ref": "conversation:2026-09-10:operator-intervention"
+        },
+        {
+          "type": "grapher_state",
+          "ref": "finding-grapher-curation-mistake-20260910"
+        }
+      ],
+      "source_refs": [
+        "conversation:2026-09-10:operator-intervention"
+      ],
+      "owners": [],
+      "provenance": {
+        "actor_id": "operator",
+        "actor_kind": "human",
+        "actor_role": "repository-operator",
+        "source": "conversation",
+        "integrity": "declared",
+        "recorded_at": "2026-09-10T12:00:34+00:00"
+      },
+      "finalized_at": "2026-09-10T12:00:34+00:00",
+      "scope": {},
+      "integrity": {
+        "algorithm": "sha256",
+        "scheme": "grapher-semantic-v1",
+        "semantic_hash": "d11d97ccb9a4e83a84a76e78b482f80d393e3f5552f1aa5242b29b69695c6ddb"
+      }
     }
   },
   "edges": [
@@ -1036,6 +1089,20 @@
       "rel": "references",
       "created_at": "2026-09-10T11:08:13+00:00",
       "note": "Correction record points to the restored naming-conflict finding."
+    },
+    {
+      "from": "incident-agent-attempted-history-mutation-20260910",
+      "to": "finding-grapher-curation-mistake-20260910",
+      "rel": "references",
+      "created_at": "2026-09-10T12:00:34+00:00",
+      "note": "Incident preserves the operator-intervention context omitted from the earlier correction finding."
+    },
+    {
+      "from": "incident-agent-attempted-history-mutation-20260910",
+      "to": "finding-mockup-studio-naming-conflict",
+      "rel": "affects",
+      "created_at": "2026-09-10T12:00:34+00:00",
+      "note": "The attempted destructive correction targeted this existing finding."
     }
   ]
 }
