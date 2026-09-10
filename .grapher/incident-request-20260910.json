@@ -1,4 +1,0 @@
-{
-  "incident_id": "incident-agent-attempted-history-mutation-20260910",
-  "purpose": "Trigger the one-off GitHub Actions runner that clones Grapher and appends the operator-intervention incident through Grapher's canonical mutation boundary."
-}
